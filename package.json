@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@qiita/qiita-cli": "^0.7.0"
+  }
+}
