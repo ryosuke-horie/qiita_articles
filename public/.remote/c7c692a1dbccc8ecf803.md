@@ -7,7 +7,7 @@ tags:
   - 個人開発
   - Nest.js
 private: false
-updated_at: '2023-08-13T00:20:58+09:00'
+updated_at: '2023-08-13T00:24:43+09:00'
 id: c7c692a1dbccc8ecf803
 organization_url_name: null
 slide: false
@@ -173,39 +173,39 @@ https://docs.aws.amazon.com/ja_jp/sdk-for-javascript/v2/developer-guide/setting-
 
 https://kacfg.com/aws-ec2-docker/
 
-    ```bash 
+    ```
     # dockerのインストール
     sudo yum -y install docker
     # docker起動
     sudo service docker start
     # 確認
-    sudo docker info
-    # sudoなしでdockerを利用できるように
-    sudo usermod -a -G docker ec2-user
-
-    # 一度EC2 Instance Connectから抜けて入りなおす
-    # sudoなしでDockerを利用できるか確認
-    docker info
-    # docker起動
-    sudo systemctl start docker
-    # 動作確認
-    systemctl status docker
-    # dockerの自動起動を有効化
-    sudo systemctl enable docker
-
-    # Docker Composeのバイナリファイルを格納するディレクトリを作成
-    sudo mkdir -p /usr/local/lib/docker/cli-plugins
-    # 変数VERにDocker Composeのバージョンを代入
-    VER=2.4.1
-    # バイナリファイルをダウンロード
-    # 3行まとめて実行 
-    sudo curl \
-      -L https://github.com/docker/compose/releases/download/v${VER}/docker-compose-$(uname -s)-$(uname -m) \
-      -o /usr/local/lib/docker/cli-plugins/docker-compose
-    # バイナリファイルに実行権限を付与
-    sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
-    # /usr/bin/に/usr/local/lib/docker/cli-plugins/docker-composeへのシンボリックリンクを設定
-    sudo ln -s /usr/local/lib/docker/cli-plugins/docker-compose /usr/bin/docker-compose
+        sudo docker info
+        # sudoなしでdockerを利用できるように
+        sudo usermod -a -G docker ec2-user
+    
+        # 一度EC2 Instance Connectから抜けて入りなおす
+        # sudoなしでDockerを利用できるか確認
+        docker info
+        # docker起動
+        sudo systemctl start docker
+        # 動作確認
+        systemctl status docker
+        # dockerの自動起動を有効化
+        sudo systemctl enable docker
+    
+        # Docker Composeのバイナリファイルを格納するディレクトリを作成
+        sudo mkdir -p /usr/local/lib/docker/cli-plugins
+        # 変数VERにDocker Composeのバージョンを代入
+        VER=2.4.1
+        # バイナリファイルをダウンロード
+        # 3行まとめて実行 
+        sudo curl \
+          -L https://github.com/docker/compose/releases/download/v${VER}/docker-compose-$(uname -s)-$(uname -m) \
+          -o /usr/local/lib/docker/cli-plugins/docker-compose
+        # バイナリファイルに実行権限を付与
+        sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+        # /usr/bin/に/usr/local/lib/docker/cli-plugins/docker-composeへのシンボリックリンクを設定
+        sudo ln -s /usr/local/lib/docker/cli-plugins/docker-compose /usr/bin/docker-compose
     ```
 
 4. Nest.jsプロジェクトのセットアップ
@@ -224,8 +224,8 @@ https://kacfg.com/aws-ec2-docker/
     npm run start
     ```
 
-ここまで実行すれば、「http://パブリックIPアドレス:3000」でプロジェクトをデプロイできます。
-また、Dockerで作成したpgAdminへのアクセスは「「http://パブリックIPアドレス:81」」でアクセスできます。
+ここまで実行すれば、「http://(パブリックIPアドレス):3000」 でプロジェクトをデプロイできます。
+また、Dockerで作成したpgAdminへのアクセスは「「http://(パブリックIPアドレス):81」 でアクセスできます。
 
 ## まとめ
 今回はAWSの無料枠を意識した構成でデプロイしてみました。
